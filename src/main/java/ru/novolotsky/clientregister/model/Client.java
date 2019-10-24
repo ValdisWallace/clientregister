@@ -1,19 +1,26 @@
 package ru.novolotsky.clientregister.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import ru.novolotsky.clientregister.json.MoneySerializer;
+
+import java.math.BigDecimal;
 
 @JsonIgnoreProperties({"login", "password"})
 public class Client {
     private String login;
     private String password;
-    private double balance;
+
+    @JsonSerialize(using = MoneySerializer.class)
+    private BigDecimal balance;
 
     public Client() {
     }
 
-    public Client(String login, String password) {
+    public Client(String login, String password, double balance) {
         this.login = login;
         this.password = password;
+        this.balance = new BigDecimal(balance);
     }
 
     public String getLogin() {
@@ -32,11 +39,11 @@ public class Client {
         this.password = password;
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
     public void setBalance(double balance) {
-        this.balance = balance;
+        this.balance = new BigDecimal(balance);
     }
 }
