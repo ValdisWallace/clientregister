@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 @JsonIgnoreProperties({"id", "login", "password"})
 @Entity
-@Table(name = "clients")
+@Table(name = "users")
 public class User {
     @Id
     @SequenceGenerator(name = "global_seq", sequenceName = "global_seq", allocationSize = 1, initialValue = 100000)

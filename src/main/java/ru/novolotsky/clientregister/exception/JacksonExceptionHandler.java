@@ -1,6 +1,6 @@
 package ru.novolotsky.clientregister.exception;
 
-import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,8 +16,8 @@ public class JacksonExceptionHandler {
         return new ResponseEntity<>(new Response(2), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(JsonMappingException.class)
-    public ResponseEntity handleConverterErrors(JsonMappingException e) {
+    @ExceptionHandler(JsonProcessingException.class)
+    public ResponseEntity handleConverterErrors(JsonProcessingException e) {
         return new ResponseEntity<>(new Response(2), HttpStatus.BAD_REQUEST);
     }
 }
