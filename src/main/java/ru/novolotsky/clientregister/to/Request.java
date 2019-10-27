@@ -1,8 +1,18 @@
 package ru.novolotsky.clientregister.to;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class Request {
+
     private Type type;
+
+    @NotBlank
+    @Size(min = 5, max = 100)
     private String login;
+
+    @NotBlank
+    @Size(min = 5, max = 100)
     private String password;
 
     public Request() {

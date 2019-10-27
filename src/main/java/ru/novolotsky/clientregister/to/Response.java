@@ -1,13 +1,13 @@
 package ru.novolotsky.clientregister.to;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ru.novolotsky.clientregister.model.Client;
+import ru.novolotsky.clientregister.model.User;
 
 public class Response {
     private int result;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Client extras;
+    private User extras;
 
     public Response() {
     }
@@ -16,7 +16,7 @@ public class Response {
         this.result = result;
     }
 
-    public Response(int result, Client extras) {
+    public Response(int result, User extras) {
         this.result = result;
         this.extras = extras;
     }
@@ -29,11 +29,11 @@ public class Response {
         this.result = result;
     }
 
-    public Client getExtras() {
+    public User getExtras() {
         return extras;
     }
 
-    public void setExtras(Client extras) {
+    public void setExtras(User extras) {
         this.extras = extras;
     }
 }
