@@ -25,7 +25,6 @@ public class UserService {
         }
     }
 
-    @Transactional
     public Response create(Request request) {
         if (repository.getByLogin(request.getLogin()) == null) {
             repository.save(new User(request.getLogin(), request.getPassword(), 0));
