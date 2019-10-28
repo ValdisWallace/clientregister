@@ -2,6 +2,7 @@ package ru.novolotsky.clientregister.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.novolotsky.clientregister.model.User;
 import ru.novolotsky.clientregister.repository.UserRepository;
 import ru.novolotsky.clientregister.to.Request;
@@ -24,6 +25,7 @@ public class UserService {
         }
     }
 
+    @Transactional
     public Response create(Request request) {
         if (repository.getByLogin(request.getLogin()) == null) {
             repository.save(new User(request.getLogin(), request.getPassword(), 0));
