@@ -11,7 +11,7 @@ import ru.novolotsky.clientregister.to.Response;
 public class UserService {
 
     @Autowired
-    UserRepository repository;
+    private UserRepository repository;
 
     public Response getBalance(Request request) {
         User user = repository.getByLogin(request.getLogin());

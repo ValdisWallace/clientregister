@@ -18,6 +18,12 @@ public class Request {
     public Request() {
     }
 
+    public Request(Type type, @NotBlank @Size(min = 5, max = 100) String login, @NotBlank @Size(min = 5, max = 100) String password) {
+        this.type = type;
+        this.login = login;
+        this.password = password;
+    }
+
     public Type getType() {
         return type;
     }
